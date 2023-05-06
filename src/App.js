@@ -13,7 +13,8 @@ function App() {
         console.log(tasks);
     }
     
-    return (<div>
+    return (<div className="vh-100 bg-light pt-5 d-flex flex-column ">
+        <h2 className="text-center">To Do App</h2>
         <CreateTask submitTask={submitTask}/>
         <ShowTask tasks={tasks} />
     </div>
