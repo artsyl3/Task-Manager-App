@@ -1,21 +1,22 @@
 import 'bootstrap/dist/css/bootstrap.css';
 
-function Task({ task }) {
- return (
-    <div className="card m-3" style={{ borderRadius: "10px" }}>
-      <div className="card-body">
-        <h5 className="card-title">{task}</h5>
-      </div>
-    </div>
-  );
-}
+
 
 function ShowTask({ tasks }) {
   const renderedTasks = tasks.map((task, index) => {
-    return <Task task={task} key={index} />;
+    return (
+      <tr key={index}>
+        <th scope="row">{index+1}</th>
+        <td>{task}</td>
+        <td>In progress</td>
+        <td>
+          <button type="submit" className="btn btn-danger">Delete</button>
+          <button type="submit" className="btn btn-success ms-1">Finished</button>
+        </td>
+    </tr> 
+    );
   });
 
-  return <div className="d-flex flex-wrap">{renderedTasks}</div>;
+  return <tbody>{renderedTasks}</tbody>;
 }
-
 export default ShowTask;
