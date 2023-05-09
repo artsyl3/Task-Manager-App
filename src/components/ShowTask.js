@@ -12,8 +12,8 @@ function ShowTask({ task , onDelete , index }) {
             <td>{task}</td>
             <td>In progress</td>
             <td>
-            <button onDelete={handleClick} type="submit" className="btn btn-danger">Delete</button>
-            <button onDelete={handleClick} type="submit" className="btn btn-success ms-1">Finished</button>
+            <button onClick={handleClick} type="submit" className="btn btn-danger">Delete</button>
+            <button onClick={handleClick} type="submit" className="btn btn-success ms-1">Finished</button>
             </td>
           </tr>
     );
