@@ -18,8 +18,7 @@ function App() {
     const submitTask = (task) => {
         const updatedTasks = [...tasks , task];
         setTasks(updatedTasks);
-        console.log(tasks);
-    }
+      }
     
     return (<div className="vh-100 bg-light pt-5 d-flex flex-column ">
         <h2 className="text-center mb-4">To Do App</h2>
