@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import CreateTask from "./components/CreateTask";
 import ListTask from "./components/ListTask";
-import ShowTask from "./components/ShowTask";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+
+
 
 
 function App() {
