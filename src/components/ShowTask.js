@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import EditTask from './EditTask';
+import Button from 'react-bootstrap/Button';
 
 function ShowTask({ task, onDelete, index }) {
   const [selectedStatus, setSelectedStatus] = useState('Select a status');
+  const [modalShow, setModalShow] = React.useState(false);
+
 
   const handleStatusChange = (status) => {
     setSelectedStatus(status);
   };
 
-  const handleClick = () => {
+  const handleDelete = () => {
     onDelete(index);
   };
 
@@ -25,9 +29,19 @@ function ShowTask({ task, onDelete, index }) {
         </DropdownButton>
       </td>
       <td>
-        <button onClick={handleClick} type="submit" className="btn btn-danger">
+      < Button variant="primary" onClick={() => setModalShow(true)}>
+        Edit
+        </Button>
+
+        <EditTask
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          task={task}
+        />
+        <button onClick={handleDelete} type="submit" className="btn btn-danger mx-2">
           Delete
         </button>
+        
       </td>
     </tr>
   );
