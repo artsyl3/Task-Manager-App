@@ -1,7 +1,25 @@
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function EditTask (props) {
+    const [edit , setEdit] = useState(props.task);
+    
+    const handleChange = (event) => {
+        setEdit(event.target.value)
+    }
+
+    const handleSubmit = () => {
+        props.onHide();
+        submitChange();
+
+    }
+
+    const submitChange = () => {
+        props.onEdit(edit , props.index);
+    }
+
+
     return (
         <Modal
         {...props}
@@ -15,10 +33,10 @@ function EditTask (props) {
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <input className='w-100 rounded'></input>
+            <input value={edit} onChange={handleChange} className='w-100 rounded'></input>
         </Modal.Body>
         <Modal.Footer>
-            <Button onClick={props.onHide}>Save</Button>
+            <Button onClick={handleSubmit}>Save</Button>
         </Modal.Footer>
         </Modal>
   );
