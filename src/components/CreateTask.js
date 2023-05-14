@@ -33,7 +33,7 @@ function CreateTask({ submitTask }) {
 
   return (
     <div className="d-flex justify-content-center mt-2">
-      <form onSubmit={handleSubmit} className="d-flex align-items-center">
+      <form onSubmit={handleSubmit} className="d-flex align-items-center w-50">
         <input
           type="text"
           className="form-control me-3"
@@ -42,7 +42,7 @@ function CreateTask({ submitTask }) {
           placeholder="Please enter your task"
           onChange={handleInputChange}
         />
-      <button className="btn btn-primary">Submit!</button>
+      <button className="btn btn-success">Submit!</button>
     </form>
   </div>
   )

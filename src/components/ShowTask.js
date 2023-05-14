@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 function ShowTask({ task, onDelete, index , onEdit}) {
   const [selectedStatus, setSelectedStatus] = useState('Select a status');
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
 
   const handleStatusChange = (status) => {
@@ -29,7 +29,7 @@ function ShowTask({ task, onDelete, index , onEdit}) {
         </DropdownButton>
       </td>
       <td>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
+        <Button variant="warning" onClick={() => setModalShow(true)}>
           Edit
         </Button>
         <EditTask
