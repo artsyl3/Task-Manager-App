@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function EditTask (props) {
-    const [edit , setEdit] = useState(props.task);
+    const [edit , setEdit] = useState(props.task.taskName);
     
     const handleChange = (event) => {
         setEdit(event.target.value)

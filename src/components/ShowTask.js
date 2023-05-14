@@ -20,7 +20,7 @@ function ShowTask({ task, onDelete, index , onEdit}) {
   return (
     <tr>
       <th scope="row">{index + 1}</th>
-      <td>{task}</td>
+      <td>{task.taskName}</td>
       <td>
         <DropdownButton id={`dropdown-basic-button-${index}`} title={selectedStatus}>
           <Dropdown.Item onClick={() => handleStatusChange('In Progress')}>In Progress</Dropdown.Item>
@@ -29,23 +29,22 @@ function ShowTask({ task, onDelete, index , onEdit}) {
         </DropdownButton>
       </td>
       <td>
-      < Button variant="primary" onClick={() => setModalShow(true)}>
-        Edit
+        <Button variant="primary" onClick={() => setModalShow(true)}>
+          Edit
         </Button>
-
-        
         <EditTask
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-          task={task}
-          onEdit={onEdit}
-          index={index}
-        />
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            task={task}
+            onEdit={onEdit}
+            index={index}
+          />
         <button onClick={handleDelete} type="submit" className="btn btn-danger mx-2">
           Delete
         </button>
-        
-        
+      </td>
+      <td>
+        {task.time}
       </td>
     </tr>
   );

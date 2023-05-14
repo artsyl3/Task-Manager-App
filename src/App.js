@@ -12,12 +12,14 @@ function App() {
     const  [tasks , setTasks] = useState([]);
 
     const editTask = (taskToEdit , indexToEdit) => {
-      const updatedTask = tasks.map((task , index) => 
-        index === indexToEdit ? taskToEdit : task
-      )
-
-      setTasks(updatedTask);
-
+      const updatedTask = tasks.map((task , index) => {
+        if (index === indexToEdit) {
+          return { ...task, taskName: taskToEdit };
+        }
+    
+        return task;
+      })
+        setTasks(updatedTask);
     }
     
     const deleteTask = (indexToRemove) => {
@@ -42,6 +44,7 @@ function App() {
               <th scope="col">Todo item</th>
               <th scope="col">Status</th>
               <th scope="col">Actions</th>
+              <th scope="col">Time</th>
             </tr>
           </thead>
           <ListTask tasks={tasks} onDelete={deleteTask} onEdit={editTask}/>

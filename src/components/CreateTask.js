@@ -11,8 +11,24 @@ function CreateTask({ submitTask }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    submitTask(task);
-    setTask("");
+    if(task === ""){
+      alert("PLease enter a proper task")
+    }
+    else{
+      const currentDate = new Date();   
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth() + 1;
+      const day = currentDate.getDate();  
+      const hour = currentDate.getHours();
+      const minutes = currentDate.getMinutes();
+      const newTask = {
+        taskName: task,
+        time: `${year}-${month}-${day} ${hour}:${minutes}`
+      };
+      submitTask(newTask);
+      setTask("");
+    }
+    
   };
 
   return (
